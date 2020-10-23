@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include dernetz *.css
+recursive-include dernetz *.csv
+recursive-include dernetz *.html
+recursive-include dernetz *.ico
+recursive-include dernetz *.js
+recursive-include dernetz *.json
+recursive-include dernetz *.md
+recursive-include dernetz *.png
+recursive-include dernetz *.py
+recursive-include dernetz *.svg
+recursive-include dernetz *.txt
+recursive-exclude dernetz *.pyc

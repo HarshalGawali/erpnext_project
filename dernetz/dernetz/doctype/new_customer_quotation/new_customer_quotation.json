@@ -1,0 +1,222 @@
+{
+ "actions": [],
+ "autoname": "QTN.#####",
+ "creation": "2020-10-17 19:56:41.334979",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "opportunity",
+  "contract_note",
+  "supply_number_mpan",
+  "supply_number_mprn",
+  "supply_number_spid",
+  "supply_number_corempan",
+  "current_supplier",
+  "meter_measurement_class",
+  "micro_business",
+  "kva",
+  "mpan_site_address",
+  "consumption",
+  "consumption_attach_file",
+  "column_break_8",
+  "contract_start_date",
+  "trading_name",
+  "company_registration_number",
+  "contract_term",
+  "contract_type",
+  "appointed_mop",
+  "uplift_required",
+  "rate_and_commission_details_section",
+  "supplier_rate",
+  "column_break_18",
+  "commission",
+  "column_break_20",
+  "customer_rate"
+ ],
+ "fields": [
+  {
+   "fieldname": "opportunity",
+   "fieldtype": "Link",
+   "label": "Opportunity",
+   "options": "Opportunity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "contract_note",
+   "fieldtype": "Link",
+   "label": "Contract Note",
+   "options": "Contract Note",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "contract_note.mpan_core",
+   "fieldname": "supply_number_mpan",
+   "fieldtype": "Data",
+   "label": "Supply Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "contract_note.mprn",
+   "fieldname": "supply_number_mprn",
+   "fieldtype": "Data",
+   "label": "Supply Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "contract_note.spid",
+   "fieldname": "supply_number_spid",
+   "fieldtype": "Data",
+   "label": "Supply Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "contract_note.core_mpan",
+   "fieldname": "supply_number_corempan",
+   "fieldtype": "Data",
+   "label": "Supply Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "contract_note.current_supplier",
+   "fieldname": "current_supplier",
+   "fieldtype": "Link",
+   "label": "Current Supplier",
+   "options": "Supplier",
+   "read_only": 1
+  },
+  {
+   "fieldname": "meter_measurement_class",
+   "fieldtype": "Select",
+   "label": "Meter Measurement Class",
+   "options": "\nHH\nNHH\nWATER"
+  },
+  {
+   "fieldname": "micro_business",
+   "fieldtype": "Select",
+   "label": "Micro Business",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fetch_from": "contract_note.kva_allocated",
+   "fieldname": "kva",
+   "fieldtype": "Data",
+   "label": "KVA"
+  },
+  {
+   "fetch_from": "contract_note.mpan_site_address",
+   "fieldname": "mpan_site_address",
+   "fieldtype": "Small Text",
+   "label": "Mpan Site Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "consumption",
+   "fieldtype": "Select",
+   "label": "Consumption",
+   "options": "\nTotal EAC\nATTACHED FILE"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "contract_note.sold_contract_start_date",
+   "fieldname": "contract_start_date",
+   "fieldtype": "Date",
+   "label": "Contract Start Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "trading_name",
+   "fieldtype": "Data",
+   "label": "Trading Name"
+  },
+  {
+   "fieldname": "company_registration_number",
+   "fieldtype": "Data",
+   "label": "Company Registration Number"
+  },
+  {
+   "fieldname": "contract_term",
+   "fieldtype": "Select",
+   "label": "Contract Term",
+   "options": "\n1\n2\n3\n4\n5\n6"
+  },
+  {
+   "fieldname": "contract_type",
+   "fieldtype": "Select",
+   "label": "Contract Type",
+   "options": "\nFixed\nFully Fixed\nPassThrough\nGree\nOther"
+  },
+  {
+   "fieldname": "appointed_mop",
+   "fieldtype": "Data",
+   "label": "Appointed MOP"
+  },
+  {
+   "fieldname": "uplift_required",
+   "fieldtype": "Float",
+   "label": "Uplift Required"
+  },
+  {
+   "fieldname": "rate_and_commission_details_section",
+   "fieldtype": "Section Break",
+   "label": "Rate & Commission Details"
+  },
+  {
+   "fieldname": "supplier_rate",
+   "fieldtype": "Currency",
+   "label": "Supplier Rate"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "In Percentage",
+   "fieldname": "commission",
+   "fieldtype": "Int",
+   "label": "Commission"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customer_rate",
+   "fieldtype": "Currency",
+   "label": "Customer Rate",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.consumption == \"ATTACHED FILE\" ",
+   "fieldname": "consumption_attach_file",
+   "fieldtype": "Attach",
+   "label": "Consumption Attach File"
+  }
+ ],
+ "links": [],
+ "modified": "2020-10-17 20:08:23.334065",
+ "modified_by": "Administrator",
+ "module": "Dernetz",
+ "name": "NEW CUSTOMER QUOTATION",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

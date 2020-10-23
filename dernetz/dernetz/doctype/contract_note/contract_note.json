@@ -1,0 +1,556 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "CN-.#####",
+ "creation": "2020-01-29 23:47:21.074926",
+ "description": "Contract Note",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "customer_email",
+  "column_break_2",
+  "contract_type",
+  "mop_contract_section",
+  "mop_site_address",
+  "mop",
+  "core_mpan",
+  "dno",
+  "mop_price",
+  "dc_price",
+  "column_break_10",
+  "da_price",
+  "total_for_mop_service",
+  "mop_supplier_cost",
+  "billing_period",
+  "mop_profit",
+  "water_contract_section",
+  "water_site_address",
+  "spid",
+  "water_consumption",
+  "waste_consumption",
+  "water_unit_rates",
+  "waste_unit_rates",
+  "column_break_22",
+  "water_fixed_rates",
+  "waste_fixed_rates",
+  "surface_drainage_fixed_rates",
+  "roads_drainage_fixed_rates",
+  "total_annual_wholesale_charge",
+  "electricity_contract_section",
+  "mpan_site_address",
+  "mpan_topline",
+  "mpan_core",
+  "mprn",
+  "eac",
+  "rate",
+  "current_supplier",
+  "email_id",
+  "new_supplier",
+  "email",
+  "meter_type",
+  "renewal_acquisition",
+  "contract_period",
+  "column_break_39",
+  "current_contract_end_date",
+  "sold_contract_start_date",
+  "sold_contract_end_date",
+  "loa",
+  "signed_contract",
+  "day_eac_ussage",
+  "night_eac_ussage",
+  "total_eac",
+  "day_rate_for_client",
+  "night_rate_for_client",
+  "standing_charge_for_client",
+  "column_break_50",
+  "contract_period_for_client",
+  "kva_allocated",
+  "kva_charge_at",
+  "fit",
+  "ro",
+  "ccl",
+  "contract_cost_for_client",
+  "uplift",
+  "commission_amount",
+  "lead"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Contract Type",
+   "options": "\nGas Contract\nElectricity Contract\nWater Contract\nMOP Contract",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.contract_type == 'MOP Contract'",
+   "fieldname": "mop_contract_section",
+   "fieldtype": "Section Break",
+   "label": "MOP Contract"
+  },
+  {
+   "bold": 1,
+   "fieldname": "mop",
+   "fieldtype": "Select",
+   "label": "Mop",
+   "options": "IMSERV\nDERNETZ\nENERGY ASSETS\nSUPPLIER"
+  },
+  {
+   "fieldname": "dno",
+   "fieldtype": "Select",
+   "label": "DNO",
+   "options": "Eastern Power Networks\nElectricity North West\nLondon Power Networks\nNorthern Powergrid (Northeast)\nNorthern Powergrid (Yorkshire)\nScottish Hydro Electric Power Distribution\nSouth Eastern Power Networks\nSouthern Electric Power Distribution\nSP Distribution Plc\nSP Manweb Plc\nWestern Power Distribution (East Midlands)\nWestern Power Distribution (South Wales)\nWestern Power Distribution (South West)\nWestern Power Distribution (West Midlands)"
+  },
+  {
+   "default": "0",
+   "fieldname": "dc_price",
+   "fieldtype": "Float",
+   "label": "DC Price"
+  },
+  {
+   "default": "0",
+   "fieldname": "da_price",
+   "fieldtype": "Float",
+   "label": "DA Price"
+  },
+  {
+   "bold": 1,
+   "default": "0",
+   "fieldname": "total_for_mop_service",
+   "fieldtype": "Float",
+   "label": "Total For Mop Service",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "mop_price",
+   "fieldtype": "Float",
+   "label": "Mop Price"
+  },
+  {
+   "default": "0",
+   "fieldname": "mop_supplier_cost",
+   "fieldtype": "Float",
+   "label": "MOP Supplier Cost"
+  },
+  {
+   "fieldname": "billing_period",
+   "fieldtype": "Select",
+   "label": "Billing Period",
+   "options": "Monthly By GC\nQuarterly\nYearly"
+  },
+  {
+   "bold": 1,
+   "default": "0",
+   "fieldname": "mop_profit",
+   "fieldtype": "Float",
+   "label": "MOP Profit",
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "mop_site_address",
+   "fieldtype": "Data",
+   "label": "MOP Site Address"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.contract_type == 'Water Contract'",
+   "fieldname": "water_contract_section",
+   "fieldtype": "Section Break",
+   "label": "Water Contract"
+  },
+  {
+   "bold": 1,
+   "fieldname": "water_site_address",
+   "fieldtype": "Data",
+   "label": "Water Site Address"
+  },
+  {
+   "default": "0",
+   "description": "In M3",
+   "fieldname": "water_consumption",
+   "fieldtype": "Float",
+   "label": "Water Consumption"
+  },
+  {
+   "default": "0",
+   "description": "In M3",
+   "fieldname": "waste_consumption",
+   "fieldtype": "Float",
+   "label": "Waste Consumption"
+  },
+  {
+   "default": "0",
+   "fieldname": "water_unit_rates",
+   "fieldtype": "Currency",
+   "label": "Water Unit Rates"
+  },
+  {
+   "default": "0",
+   "fieldname": "waste_unit_rates",
+   "fieldtype": "Currency",
+   "label": "Waste Unit Rates"
+  },
+  {
+   "default": "0",
+   "description": "In \u00a3 / Annum",
+   "fieldname": "water_fixed_rates",
+   "fieldtype": "Currency",
+   "label": "Water Fixed Rates"
+  },
+  {
+   "default": "0",
+   "description": "In \u00a3 / Annum",
+   "fieldname": "waste_fixed_rates",
+   "fieldtype": "Currency",
+   "label": "Waste Fixed Rates"
+  },
+  {
+   "default": "0",
+   "description": "In \u00a3 / Annum",
+   "fieldname": "surface_drainage_fixed_rates",
+   "fieldtype": "Currency",
+   "label": "Surface Drainage Fixed Rates"
+  },
+  {
+   "default": "0",
+   "description": "In \u00a3 / Annum",
+   "fieldname": "roads_drainage_fixed_rates",
+   "fieldtype": "Currency",
+   "label": "Roads Drainage Fixed Rates"
+  },
+  {
+   "bold": 1,
+   "default": "0",
+   "fieldname": "total_annual_wholesale_charge",
+   "fieldtype": "Currency",
+   "label": "Total Annual Wholesale Charge"
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.contract_type == 'Electricity Contract' || doc.contract_type == 'Gas Contract' ",
+   "fieldname": "electricity_contract_section",
+   "fieldtype": "Section Break",
+   "label": "Electricity / GAS Contract"
+  },
+  {
+   "bold": 1,
+   "fieldname": "mpan_site_address",
+   "fieldtype": "Data",
+   "label": "MPAN Site Address"
+  },
+  {
+   "fieldname": "mpan_topline",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "MPAN Topline",
+   "search_index": 1
+  },
+  {
+   "fieldname": "mpan_core",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "MPAN Core",
+   "search_index": 1
+  },
+  {
+   "default": "0",
+   "description": "In KWH",
+   "fieldname": "eac",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "EAC",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "current_supplier",
+   "fieldtype": "Link",
+   "label": "Current Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "new_supplier",
+   "fieldtype": "Link",
+   "label": "New Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "meter_type",
+   "fieldtype": "Select",
+   "label": "Meter Type",
+   "options": "HH\nNHH\nDomestic\nP272"
+  },
+  {
+   "default": "Renewal",
+   "fieldname": "renewal_acquisition",
+   "fieldtype": "Select",
+   "label": "Renewal Acquisition",
+   "options": "Renewal\nAcquisition"
+  },
+  {
+   "default": "1",
+   "description": "In Years",
+   "fieldname": "contract_period",
+   "fieldtype": "Select",
+   "label": "Contract Period",
+   "options": "1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "current_contract_end_date",
+   "fieldtype": "Date",
+   "label": "Current Contract End Date"
+  },
+  {
+   "fieldname": "sold_contract_start_date",
+   "fieldtype": "Date",
+   "label": "New Contract Start Date"
+  },
+  {
+   "bold": 1,
+   "fieldname": "sold_contract_end_date",
+   "fieldtype": "Date",
+   "label": "New Contract End Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "loa",
+   "fieldtype": "Attach",
+   "label": "LOA"
+  },
+  {
+   "fieldname": "signed_contract",
+   "fieldtype": "Attach",
+   "label": "Signed Contract"
+  },
+  {
+   "bold": 1,
+   "default": "0",
+   "description": "In KWH",
+   "fieldname": "total_eac",
+   "fieldtype": "Float",
+   "label": "Total EAC"
+  },
+  {
+   "default": "0",
+   "fieldname": "day_eac_ussage",
+   "fieldtype": "Float",
+   "label": "Day EAC Ussage"
+  },
+  {
+   "default": "0",
+   "fieldname": "night_eac_ussage",
+   "fieldtype": "Float",
+   "label": "Night EAC Ussage"
+  },
+  {
+   "default": "0",
+   "fieldname": "day_rate_for_client",
+   "fieldtype": "Float",
+   "label": "Day Rate"
+  },
+  {
+   "default": "0",
+   "fieldname": "night_rate_for_client",
+   "fieldtype": "Float",
+   "label": "Night Rate"
+  },
+  {
+   "default": "1",
+   "description": "In Terms Of Year Contract",
+   "fieldname": "contract_period_for_client",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Contract Period",
+   "options": "1\n2\n3\n4\n5"
+  },
+  {
+   "default": "0",
+   "fieldname": "standing_charge_for_client",
+   "fieldtype": "Float",
+   "label": "Standing Charge"
+  },
+  {
+   "default": "0",
+   "fieldname": "kva_allocated",
+   "fieldtype": "Float",
+   "label": "KVA Allocated"
+  },
+  {
+   "default": "0",
+   "fieldname": "kva_charge_at",
+   "fieldtype": "Float",
+   "label": "KVA Charge At"
+  },
+  {
+   "default": "0",
+   "description": "Feed In Tariff",
+   "fieldname": "fit",
+   "fieldtype": "Float",
+   "label": "FIT"
+  },
+  {
+   "default": "0",
+   "description": "Renewable Obligation",
+   "fieldname": "ro",
+   "fieldtype": "Float",
+   "label": "RO"
+  },
+  {
+   "default": "0",
+   "description": "Climate Change Levy",
+   "fieldname": "ccl",
+   "fieldtype": "Float",
+   "label": "CCL"
+  },
+  {
+   "bold": 1,
+   "default": "0",
+   "fieldname": "contract_cost_for_client",
+   "fieldtype": "Float",
+   "label": "Contract Cost",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "Add Number Between 0.01 Pence To 3 Pence",
+   "fieldname": "uplift",
+   "fieldtype": "Float",
+   "label": "Uplift"
+  },
+  {
+   "bold": 1,
+   "default": "0",
+   "fieldname": "commission_amount",
+   "fieldtype": "Float",
+   "label": "Commission Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_39",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_50",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mprn",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Mprn",
+   "search_index": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "rate",
+   "fieldtype": "Float",
+   "label": "Rate"
+  },
+  {
+   "fieldname": "core_mpan",
+   "fieldtype": "Data",
+   "label": "Core MPAN"
+  },
+  {
+   "fieldname": "spid",
+   "fieldtype": "Data",
+   "label": "Spid"
+  },
+  {
+   "fieldname": "lead",
+   "fieldtype": "Data",
+   "label": "Lead",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "new_supplier.supplier_email",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "New Supplier Email",
+   "options": "Email",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer.email_id",
+   "fieldname": "customer_email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "current_supplier.supplier_email",
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Current Supplier Email",
+   "options": "Email",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2020-10-16 18:20:38.819858",
+ "modified_by": "Administrator",
+ "module": "Dernetz",
+ "name": "Contract Note",
+ "name_case": "Title Case",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "customer,mpan_topline,mpan_core,mprn",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "customer"
+}
